@@ -1,38 +1,38 @@
 const Sequelize = require('sequelize');
 
-module.exports = (Sequelize) => {
-    const bitcoin = Sequelize.define('bitcoin', {
+module.exports = (sequelize) => {
+    const bitcoin = sequelize.define('bitcoin', {
         pk: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
         naver_pk: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: false
         },
         bcode: {
-            type: DataTypes.BIGINT,
+            type: Sequelize.BIGINT,
             allowNull: false
         },
         b_id: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         bonbun: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         bubun: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         buildingId: {
-            type: DataTypes.INTEGER,
+            type: Sequelize.INTEGER,
             allowNull: false
         },
         buildingCompletion: {
-            type: DataTypes.STRING,
+            type: Sequelize.STRING,
             allowNull: true
         }
     });

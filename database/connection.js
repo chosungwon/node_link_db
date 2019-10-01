@@ -1,5 +1,5 @@
 const Sequelize = require('sequelize');
-
+const bitcoin = require('./model/bitcoin');
 
 const sequelize = new Sequelize(
     "mrjo",              // 데이터베이스 이름
@@ -12,9 +12,6 @@ const sequelize = new Sequelize(
 );
 
 sequelize.authenticate()
-
-
-
     .then(() => {
         console.log('DB연결 성공');
     }).catch((err) => {
@@ -24,7 +21,10 @@ sequelize.authenticate()
     }
 });
 
+const result = {
+    Sequelize,
+    sequelize,
+    bitcoin: bitcoin(sequelize)
+}
 
-sequelize.sync({force:true});
-
-module.exports = sequelize;
+module.exports = result;

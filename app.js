@@ -2,14 +2,13 @@ const express = require('express');
 const request = require('request');
 const bodyParser = require('body-parser')
 
-const sequelize = require('./database/connection')
-const bitcoin = require('./database/model/bitcoin')
+const {sequelize, bitcoin} = require('./database/connection')
 
 const app = express();
 
 app.use(bodyParser.json());
 
-const server = app.listen(3000, function(){
+const server = app.listen(3001, function(){
     console.log("Express server has started on port 3000")
 })
 
@@ -17,7 +16,7 @@ const server = app.listen(3000, function(){
 // ?currency_pair=btc_krw
 
 
-
+sequelize.sync({force:true});
 
 
 app.get(`/coin`, function(req, res){
@@ -41,7 +40,7 @@ app.get(`/coin`, function(req, res){
             }
         }
 
-        sequelize.create({
+        bitcoin.create({
             last: obj.last,
             high: obj.high,
             low: obj.low,
