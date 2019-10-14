@@ -2,13 +2,9 @@ const Sequelize = require('sequelize');
 const bitcoin = require('./model/bitcoin');
 
 const sequelize = new Sequelize(
-    "mrjo",              // 데이터베이스 이름
-    "sago",          // 유저 명
-    "sagosagosago",          // 비밀번호
-    {
-        'host': "sago.c6mnzwpnzomg.ap-northeast-2.rds.amazonaws.com",
-        'dialect': 'mysql'
-    }
+             // 데이터베이스 이름
+            // 유저 명
+              // 비밀번
 );
 
 sequelize.authenticate()
